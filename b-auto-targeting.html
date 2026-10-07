@@ -40,15 +40,14 @@
       let target = null;
       // Pick the living enemy with the greatest current health.
       for (const enemy of enemies) {
-        // If health is zero, that enemy is not alive.
         if (enemy.health <= 0)
         {
           continue;
         }
-        // Replace target when there is none or if current enemy has greater than or same health.
-          if (!target || enemy.health >= target.health) {
+        // In case of tie, later enemies win. 
+        if (!target || enemy.health >= target.health) {
           target = enemy;
-          }
+        }
       }
       return target;
     }
